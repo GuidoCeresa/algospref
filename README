@@ -1,5 +1,5 @@
 Plugin per gestire una tavola di preferenze standard.
-Grails: 2.4.1
+Grails: 2.4.2
 
 Tipologia dei tipi di valori utilizzabili:
     stringa('stringa', 'stringa', 'stringa'),
