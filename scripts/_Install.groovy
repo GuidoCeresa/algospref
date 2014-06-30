@@ -15,21 +15,16 @@ String i18Dir = "${appDir}i18n/"
 
 // copy readme into project
 copyFile(source, dest, "${appDir}README", "README-Pref")
-print('------------')
-print('Algospref - creato (o sovrascritto) README-Pref')
-print('------------')
 
-// copy PrefBootStrap into project
-moveFile(source, dest, "${confDir}PrefBootStrap.groovy")
-print('------------')
-print('Algospref - creato (NON sovrascritto) PrefBootStrap')
-print('------------')
+// create PrefBootStrap into project
+newFile(source, dest, "${confDir}PrefBootStrap.groovy")
 
 // copy i18n into project
 copyFile(source, dest, "${i18Dir}algospref.properties")
-print('------------')
-print('Algospref - creato (o sovrascritto) grails-app/i18n/algospref.properties')
-print('------------')
+
+public static newFile(String srcDirPath, String dstDirPath, String fileName) {
+    newFile(srcDirPath, dstDirPath, fileName, fileName)
+} // fine del metodo
 
 public static copyFile(String srcDirPath, String dstDirPath, String fileName) {
     copyFile(srcDirPath, dstDirPath, fileName, fileName)
@@ -39,12 +34,26 @@ public static moveFile(String srcDirPath, String dstDirPath, String fileName) {
     moveFile(srcDirPath, dstDirPath, fileName, fileName)
 } // fine del metodo
 
+public static newFile(String srcDirPath, String dstDirPath, String srcFileName, String dstFileName) {
+    String srcFile = srcDirPath + srcFileName
+    String destFile = dstDirPath + dstFileName
+
+    newFile(srcFile, destFile)
+    deleteFile(srcFile)
+    print('------------')
+    print('Creato (NON sovrascritto): ' + dstFileName)
+    print('------------')
+} // fine del metodo
+
 public static copyFile(String srcDirPath, String dstDirPath, String srcFileName, String dstFileName) {
     String srcFile = srcDirPath + srcFileName
     String destFile = dstDirPath + dstFileName
 
     copyFile(srcFile, destFile)
     deleteFile(srcFile)
+    print('------------')
+    print('Creato (o sovrascritto) e poi cancellato: ' + dstFileName)
+    print('------------')
 } // fine del metodo
 
 public static moveFile(String srcDirPath, String dstDirPath, String srcFileName, String dstFileName) {
@@ -52,6 +61,13 @@ public static moveFile(String srcDirPath, String dstDirPath, String srcFileName,
     String destFile = dstDirPath + dstFileName
 
     copyFile(srcFile, destFile)
+    print('------------')
+    print('Creato (o sovrascritto): ' + dstFileName)
+    print('------------')
+} // fine del metodo
+
+public static newFile(String srcFile, String destFile) {
+    new AntBuilder().copy(file: srcFile, tofile: destFile, overwrite: false)
 } // fine del metodo
 
 public static copyFile(String srcFile, String destFile) {
