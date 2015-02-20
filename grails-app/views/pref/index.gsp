@@ -42,6 +42,9 @@
     </g:if>
     <h1><g:message code="pref.list.label" args="[entityName]" default="Elenco"/></h1>
 
+    <div class="pagination">
+        <g:paginate total="${prefInstanceCount ?: 0}"/>
+    </div>
     <table>
         <thead>
         <g:if test="${campiLista}">
