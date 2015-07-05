@@ -1,5 +1,4 @@
 /**
- * Created by ${USER} on ${DAY} ${MONTH_NAME_SHORT} ${YEAR}.
  * Creato dal plugin AlgosPref
  *
  * Classe di BootStrap in cui passa SEMPRE quando si lancia il programma
