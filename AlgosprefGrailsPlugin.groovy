@@ -3,7 +3,7 @@
 //
 class AlgosprefGrailsPlugin {
     // the plugin version
-    def version = "0.73"
+    def version = "0.75"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.4.2 > *"
     // the other plugins this plugin depends on
