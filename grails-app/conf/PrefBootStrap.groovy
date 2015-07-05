@@ -6,7 +6,7 @@
  *
  * Questa classe viene creata (solo se non esiste già) quando si installa il plugin
  * Viene cancellata quando si disinstalla il plugin
- * Non viene modificata quando si upgrada il plugin
+ * Non viene modificata quando si esegue un upgrade del plugin
  */
 public class PrefBootStrap {
 
